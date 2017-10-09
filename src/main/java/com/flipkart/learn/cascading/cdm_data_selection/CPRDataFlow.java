@@ -58,10 +58,14 @@ public class CPRDataFlow implements CascadingFlows {
 
 
         PartitionTap cprVerticalSplitTap = new PartitionTap( new Hfs(new TextLine(), options.get("output")), partition, SinkMode.REPLACE );
+
+        Hfs cprTap = new Hfs(new TextLine(), options.get("output"), SinkMode.REPLACE);
+
         return FlowDef.flowDef().setName(options.get("flowName"))
                 .addSource(cmsPipe, cmsData)
                 .addSource(cdmPipe, inputData)
-                .addTailSink(cprRawPipe, cprVerticalSplitTap)
+//                .addTailSink(cprRawPipe, cprVerticalSplitTap)
+                .addTailSink(cprRawPipe, cprTap)
                 .setAssertionLevel(AssertionLevel.VALID);
     }
 
