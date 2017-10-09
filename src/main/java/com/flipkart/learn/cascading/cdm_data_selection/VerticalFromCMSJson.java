@@ -44,10 +44,11 @@ public class VerticalFromCMSJson extends BaseOperation implements Function {
 //            if(verticalName.equalsIgnoreCase("t_shirt")){
 //                functionCall.getOutputCollector().add(result);
 //            }
-            List<String> verticalsWhitelist = Arrays.asList("watch", "sari", "television", "computer", "power_bank", "shoe", "t_shirt");
-            if(verticalsWhitelist.contains(verticalName.toLowerCase())){
-                functionCall.getOutputCollector().add(result);
-            }
+//            List<String> verticalsWhitelist = Arrays.asList("watch", "sari", "television", "computer", "power_bank", "shoe", "t_shirt");
+//            if(verticalsWhitelist.contains(verticalName.toLowerCase())){
+//                functionCall.getOutputCollector().add(result);
+//            }
+            functionCall.getOutputCollector().add(result);
         } catch (JSONException e) {
             e.printStackTrace();
         }
